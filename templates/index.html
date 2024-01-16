@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AIGAZOLAS SHOES </title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <a href="/" class="logo">
+        <img src="{{ url_for('static',filename='/img/logooo.png') }}" alt="" />
+      </a>
+      <!--Menu-Icon-->
+      <i class="bx bx-menu" id="menu-icon"></i>
+      <!--Links-->
+      <ul class="navbar">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#about">About Us</a></li>
+        <li><a href="/#product">Products</a></li>
+        <li><a href="/hasil">recommendation</a></li>
+
+      </ul>
+    </header>
+    <!--Home-->
+    <section class="home" id="home">
+      <div class="home-text">
+        <h1>
+          Welcome to AIGAZOLAS!<br />
+
+        </h1>
+        <p>
+            "Temukan berbagai pilihan parfum sepatu eksklusif yang akan meningkatkan aroma sepatu Anda di setiap langkah." 
+        </p>
+        <a  href="/#product" class="btn1">Go to Product</a>
+      </div>
+      <div class="home-img">
+        <img src="/static/img/.JPG" alt="" />
+      </div>
+    </section>
+    <!-- About -->
+    <section class="about" id="about">
+      <div class="about-img">
+        <img src="/static/img/bg.jpeg" alt="" />
+      </div>
+      <div class="about-text">
+        <h2>Our History</h2>
+        <p>
+           Aigazolas adalah sebuah outlet yang menjual koleksi parfum sepatu eksklusif kami, yang akan memberikan sepatu Anda aroma segar yang tahan lama. Di Parfum Sepatu Elegan, kami memahami pentingnya tampilan, kenyamanan, dan kepercayaan diri yang datang dengan sepasang sepatu yang berkualitas. Koleksi kami dirancang khusus untuk memenuhi kebutuhan Anda dengan produk-produk yang memikat dan unik.
+        </p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+    </section>
+    <!-- Products -->
+    <section class="product" id="product">
+      <div class="heading">
+        <h2>Our Popular Products</h2>
+      </div>
+      <!--Container-->
+      <div class="products-container">
+        <div class="box">
+          <img src="/static/img/blue.jpg" alt="" />
+          <h3>Blue Fresh</h3>
+          <div class="content">
+            
+            <a href="/product?id=4">Check Product</a>
+          </div>
+        </div>
+        <div class="box">
+          <img src="/static/img/bubble.jpg" alt="" />
+          <h3>Bubble Gum</h3>
+          <div class="content">
+            
+            <a href="/product?id=1">Check Product</a>
+          </div>
+        </div>
+        <div class="box">
+          <img src="/static/img/kopi.jpg" alt="" />
+          <h3>Kopi</h3>
+          <div class="content">
+            
+            <a href="/product?id=3">Check Product</a>
+          </div>
+        </div>
+        <div class="box">
+          <img src="/static/img/vani.jpg" alt="" />
+          <h3>Vanilla</h3>
+          <div class="content">
+            
+            <a href="/product?id=0">Check Product</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="footer">
+      <div class="footer-box">
+        <h2>Aigazolas</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        <div class="social">
+          <a href="#"><i class="bx bxl-facebook"></i></a>
+          <a href="#"><i class="bx bxl-whatsapp"></i></a>
+          <a href="#"><i class="bx bxl-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-box">
+        <h3>Contact</h3>
+        <div class="contact">
+          <span><i class="bx bx-map"></i>Semolowaru Surabaya</span><br>
+          <span><i class="bx bx-phone"></i>081246469335</span><br>
+          <span><i class="bx bx-envelope"></i>aigazolas@gmail.com</span>
+        </div>
+      </div>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
+</html>

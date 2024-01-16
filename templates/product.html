@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product[3] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+      <a href="/" class="logo">
+        <img src="/static/img/logooo.png" alt="" />
+      </a>
+      <!--Menu-Icon-->
+      <i class="bx bx-menu" id="menu-icon"></i>
+      <!--Links-->
+      <ul class="navbar">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#about">About Us</a></li>
+        
+        <li><a href="/#product">Products</a></li>
+        <li><a href="/hasil">recommendation</a></li>
+      </ul>
+    </header>
+    <br>
+    <br>
+    <br>
+  <!-- About (Clustering Results Section) -->
+<section class="about2" id="about-img2">
+    <div class="about-img2">
+      {% if data[0]|int() == 6 %}
+      <img src="{{ url_for('static', filename='img/blue.jpg') }}" alt="Blue Fresh Image">
+      {% elif data[0]|int() == 5 %}
+      <img src="{{ url_for('static', filename='img/bubble.jpg') }}" alt="Bubble Gum Image">
+      {% elif data[0]|int() == 3 %}
+      <img src="{{ url_for('static', filename='img/vani.jpg') }}" alt="Vanilla Image">
+      {% elif data[0]|int() == 4 %}
+      <img src="{{ url_for('static', filename='img/kopi.jpg') }}" alt="Coffee Image">
+      {% endif %}
+    </div>
+    <div class="about-text">
+      <h22>{{ product[3] }}</h22>
+      {% if data[0]|int() == 6 %}
+      <p>
+        Parfum berbau fresh menciptakan kesan menyegarkan, bersih, dan energik. Aromanya terinspirasi dari buah-buahan segar, bunga-bunga baru mekar, dan elemen alam. Citrus yang cerah, seperti jeruk, memberikan sentuhan kesegaran yang menggugah.      </p>
+      <p>
+        Parfum fresh cocok untuk sehari-hari, di kantor, atau musim panas. Aromanya ringan dan positif, menciptakan suasana hati yang menyenangkan. Kesegaran dan kebersihan parfum ini membuatnya menjadi pilihan yang populer.
+      </p>
+      {% elif data[0]|int() == 5 %}
+      <p>
+        Parfum berbau Buble Gum menciptakan kesan menyegarkan, bersih, dan energik. Aromanya terinspirasi dari buah-buahan segar, bunga-bunga baru mekar, dan elemen alam. Citrus yang cerah, seperti jeruk, memberikan sentuhan kesegaran yang menggugah.      </p>
+      <p>
+        Parfum fresh cocok untuk sehari-hari, di kantor, atau musim panas. Aromanya ringan dan positif, menciptakan suasana hati yang menyenangkan. Kesegaran dan kebersihan parfum ini membuatnya menjadi pilihan yang populer.
+      </p>
+      {% elif data[0]|int() == 3 %}
+      <p>
+        Parfum berbau vanila  menciptakan kesan menyegarkan, bersih, dan energik. Aromanya terinspirasi dari buah-buahan segar, bunga-bunga baru mekar, dan elemen alam. Citrus yang cerah, seperti jeruk, memberikan sentuhan kesegaran yang menggugah.      </p>
+      <p>
+        Parfum fresh cocok untuk sehari-hari, di kantor, atau musim panas. Aromanya ringan dan positif, menciptakan suasana hati yang menyenangkan. Kesegaran dan kebersihan parfum ini membuatnya menjadi pilihan yang populer.
+      </p>
+      {% elif data[0]|int() == 4 %}
+      <p>
+        Parfum berbau cofe  menciptakan kesan menyegarkan, bersih, dan energik. Aromanya terinspirasi dari buah-buahan segar, bunga-bunga baru mekar, dan elemen alam. Citrus yang cerah, seperti jeruk, memberikan sentuhan kesegaran yang menggugah.      </p>
+      <p>
+        Parfum fresh cocok untuk sehari-hari, di kantor, atau musim panas. Aromanya ringan dan positif, menciptakan suasana hati yang menyenangkan. Kesegaran dan kebersihan parfum ini membuatnya menjadi pilihan yang populer.
+      </p>
+      {% endif %}
+      <h3>Detail Produk</h3>
+      Harga : {{ product[1] }}<br>
+      Volume : {{ product[2] }}<br>
+      Varian Aroma : {{ product[3] }}<br>
+      Tipe Aroma : {{ product[4] }} {{ product[5] }}<br>
+      Kandungan : {{ product[6] }} {{ product[7] }} {{ product[8] }}<br>
+      Kemasan : {{ product[9] }}<br>
+      
+    </div>
+  </section>
+  
+
+   <!-- Products -->
+<section class="product" id="product">
+    <div class="heading">
+      <h2>Products Recomendation</h2>
+    </div>
+    <!-- Container -->
+    <div class="products-container">
+      {% for row in hasilcetak %}
+      <div class="box">
+        {% if row[1]|int() == 6 %}
+        <img src="{{ url_for('static', filename='img/blue.jpg') }}" alt="Blue Fresh Image">
+        {% elif row[1]|int() == 5 %}
+        <img src="{{ url_for('static', filename='img/bubble.jpg') }}" alt="Bubble Gum Image">
+        {% elif row[1]|int() == 3 %}
+        <img src="{{ url_for('static', filename='img/vani.jpg') }}" alt="Vanilla Image">
+        {% elif row[1]|int() == 4 %}
+        <img src="{{ url_for('static', filename='img/kopi.jpg') }}" alt="Coffee Image">
+        {% endif %}
+        <h3><a href="/product?id={{ row[0] }}">{{ row[4] }}</a></h3>
+        <div class="content">
+          Harga : {{ row[3] }}<br>
+          Volume : {{ row[4] }}<br>
+          Tipe Aroma : {{ row[5] }} {{ row[6] }}<br>
+          Kandungan : {{ row[7] }} {{ row[8] }} {{ row[9] }}<br>
+          Kemasan : {{ row[10] }}<br>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  
+
+    <!-- Footer -->
+    <section class="footer">
+      <div class="footer-box">
+        <h2>Aigazolas</h2>
+        <div class="social">
+          <a href="#"><i class="bx bxl-facebook"></i></a>
+          <a href="#"><i class="bx bxl-whatsapp"></i></a>
+          <a href="#"><i class="bx bxl-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-box">
+        <h3>Contact</h3>
+        <div class="contact">
+          <span><i class="bx bx-map"></i>Semolowaru Surabaya</span><br>
+          <span><i class="bx bx-phone"></i>081246469335</span><br>
+          <span><i class="bx bx-envelope"></i>aigazolas@gmail.com</span>
+        </div>
+      </div>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
+</html>

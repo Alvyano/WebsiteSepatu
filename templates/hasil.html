@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clustering Questionnaire - AIGAZOLAS</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <a href="/" class="logo">
+            <img src="/static/img/logooo.png" alt="" />
+        </a>
+        <!--Menu-Icon-->
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <!--Links-->
+        <ul class="navbar">
+            <li><a href="/">Home</a></li>
+            <li><a href="/#about">About Us</a></li>
+            <li><a href="/#product">Products</a></li>
+            <li><a href="/hasil">recommendation</a></li>
+        </ul>
+    </header>
+
+    <!-- Clustering Questionnaire Section -->
+   <!-- Clustering Questionnaire -->
+<section class="clustering" id="clustering">
+    <div class="container">
+      <h2>Clustering Questions</h2>
+      <form id="clusteringForm" action="/hasil" method="post">
+        <div class="question">
+          <label for="question1">Apakah Anda lebih menyukai aroma yang segar ? </label>
+          <div class="options">
+            <input type="radio" id="question1-ya" name="question1" value="iya">
+            <label for="question1-ya">Iya</label>
+            <input type="radio" id="question1-tidak" name="question1" value="tidak">
+            <label for="question1-tidak">Tidak</label>
+          </div>
+        </div>
+  
+        
+        <div class="question">
+          <label for="question2">Apakah Anda lebih menyukai aroma yang kuat?</label>
+          <div class="options">
+            <input type="radio" id="question2-ya" name="question2" value="iya">
+            <label for="question2-ya">Iya</label>
+            <input type="radio" id="question2-tidak" name="question2" value="tidak">
+            <label for="question2-tidak">Tidak</label>
+          </div>
+        </div>
+  
+        <div class="question">
+          <label for="question3">Apakah Anda mencari aroma fragrance oil yang dapat menciptakan suasana yang menenangkan ? </label>
+          <div class="options">
+            <input type="radio" id="question3-ya" name="question3" value="iya">
+            <label for="question3-ya">Iya</label>
+            <input type="radio" id="question3-tidak" name="question3" value="tidak">
+            <label for="question3-tidak">Tidak</label>
+          </div>
+        </div>
+  
+        <div class="question">
+          <label for="question4">Apakah Anda tertarik dengan parfum yang mengandung charlodir untuk memberikan keharuman tertentu ? </label>
+          <div class="options">
+            <input type="radio" id="question4-ya" name="question4" value="iya">
+            <label for="question4-ya">Iya</label>
+            <input type="radio" id="question4-tidak" name="question4" value="tidak">
+            <label for="question4-tidak">Tidak</label>
+          </div>
+        </div>
+  
+        <div class="question">
+          <label for="question5">Apakah Anda cenderung memilih parfum dengan kandungan benzalkonium untuk perlindungan dari kuman ? </label>
+          <div class="options">
+            <input type="radio" id="question5-ya" name="question5" value="iya">
+            <label for="question5-ya">Iya</label>
+            <input type="radio" id="question5-tidak" name="question5" value="tidak">
+            <label for="question5-tidak">Tidak</label>
+          </div>
+        </div>
+  
+        <div class="question">
+          <label for="question6">Apakah Anda lebih memilih produk dengan kemasan plastik atau karton ? </label>
+          <div class="options">
+            <input type="radio" id="question6-plastik" name="question6" value="plastik">
+            <label for="question6-plastik">Plastik</label>
+            <input type="radio" id="question6-karton" name="question6" value="karton">
+            <label for="question6-karton">Karton</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label for="question7">Varian Apa Yang Paling Anda Sukak? </label>
+          <div class="options">
+            <input type="radio" id="question7-Buble Gum" name="question7" value="Buble Gum">
+            <label for="question7-Buble Gum">Buble Gum</label>
+            <input type="radio" id="question7-Blue fresh" name="question7" value="Blue fresh">
+            <label for="question7-Blue fresh">Blue fresh</label>
+
+            <input type="radio" id="question7-Vanilla" name="question7" value="Vanilla">
+            <label for="question7-Vanilla">Vanilla</label>
+            <input type="radio" id="question7-Coffee" name="question7" value="Coffee">
+            <label for="question7-Coffee">Coffee</label>
+          </div>
+        </div>
+        
+  
+        <button type="submit">Submit</button>
+      </form>
+</div>
+      
+    </div>
+  </section>
+
+   <!-- Products -->
+   <section class="product" id="product">
+    <div class="heading">
+      <h2>Products Recomendation</h2>
+    </div>
+    <!-- Container -->
+    <div class="products-container">
+      {% for row in hasilcetak %}
+      <div class="box">
+        {% if row[1]|int() == 6 %}
+        <img src="{{ url_for('static', filename='img/blue.jpg') }}" alt="Blue Fresh Image">
+        {% elif row[1]|int() == 5 %}
+        <img src="{{ url_for('static', filename='img/bubble.jpg') }}" alt="Bubble Gum Image">
+        {% elif row[1]|int() == 3 %}
+        <img src="{{ url_for('static', filename='img/vani.jpg') }}" alt="Vanilla Image">
+        {% elif row[1]|int() == 4 %}
+        <img src="{{ url_for('static', filename='img/kopi.jpg') }}" alt="Coffee Image">
+        {% endif %}
+        <h3><a href="/product?id={{ row[0] }}">{{ row[4] }}</a></h3>
+        <div class="content">
+          Harga : {{ row[3] }}<br>
+          Volume : {{ row[4] }}<br>
+          Tipe Aroma : {{ row[5] }} {{ row[6] }}<br>
+          Kandungan : {{ row[7] }} {{ row[8] }} {{ row[9] }}<br>
+          Kemasan : {{ row[10] }}<br>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  
+  
+    <!-- Footer -->
+    <section class="footer">
+        <div class="footer-box">
+            <h2>AIGAZOLAS</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            <div class="social">
+                <a href="#"><i class="bx bxl-facebook"></i></a>
+                <a href="#"><i class="bx bxl-whatsapp"></i></a>
+                <a href="#"><i class="bx bxl-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <div class="contact">
+                <span><i class="bx bx-map"></i>Semolowaru Surabaya</span><br>
+                <span><i class="bx bx-phone"></i>081246469335</span><br>
+                <span><i class="bx bx-envelope"></i>aigazolas@gmail.com</span>
+            </div>
+        </div>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>
